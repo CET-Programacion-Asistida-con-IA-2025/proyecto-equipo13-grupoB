@@ -57,9 +57,7 @@ Este proyecto se trata de una **plataforma web interactiva** que aborda el probl
 
 ### 🎨 Moodboard
 
-![Moodboard del Proyecto](link-a-tu-moodboard-o-una-imagen.jpg)
-
-*(Podriamos hacer un drive)*
+![Moodboard del Proyecto](https://drive.google.com/drive/folders/1QGmzWopz6SZIW31iCaTk5dl_QJeDA2qc?usp=drive_link)
 
 ---
 
