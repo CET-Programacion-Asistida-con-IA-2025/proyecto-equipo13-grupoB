@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Pro - Sin Filtros ATS</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🚀 CV PRO</h1>
+            <p>Crea CVs que superen cualquier filtro ATS y destaca en tu búsqueda laboral</p>
+        </div>
+
+        <!-- Main Cards -->
+        <div class="cards-grid">
+            <!-- CV Builder Card -->
+            <div class="card">
+                <h2>
+                    <div class="card-icon cv-icon">📄</div>
+                    Generador de CV Anti-ATS
+                </h2>
+                <p>Crea tu CV optimizado para superar los filtros automáticos de las empresas. Nuestro sistema te guía
+                    para usar las palabras clave correctas y el formato ideal.</p>
+                <button class="btn" onclick="toggleCVBuilder()">Crear mi CV ahora</button>
+                <a href="#tips" class="btn btn-secondary">Ver consejos</a>
+            </div>
+
+            <!-- Training Card -->
+            <div class="card">
+                <h2>
+                    <div class="card-icon course-icon">🎓</div>
+                    Capacitación Gratuita
+                </h2>
+                <p>Accede a cursos gratuitos de las mejores plataformas educativas. Mejora tus habilidades y aumenta tus
+                    oportunidades laborales.</p>
+                <button class="btn" onclick="toggleCourses()">Ver cursos</button>
+                <button class="btn btn-secondary" onclick="toggleResources()">Recursos</button>
+            </div>
+
+            <!-- Interview Simulator Card -->
+            <div class="card">
+                <h2>
+                    <div class="card-icon interview-icon">💼</div>
+                    Simulador de Entrevistas
+                </h2>
+                <p>Practica entrevistas laborales con IA. Recibe feedback personalizado para mejorar tus respuestas y
+                    ganar confianza.</p>
+                <button class="btn" onclick="toggleSimulator()">Practicar ahora</button>
+                <button class="btn btn-secondary" onclick="showInterviewTips()">Consejos</button>
+            </div>
+        </div>
+
+        <!-- CV Builder Section -->
+        <div class="cv-builder" id="cvBuilder" style="display: none;">
+            <h2>🔥 Construye tu CV Anti-ATS</h2>
+            <p>Completa los campos y nuestro sistema optimizará tu CV automáticamente</p>
+
+            <form class="cv-form" id="cvForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo *</label>
+                    <input type="text" id="nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono">
+                </div>
+
+                <div class="form-group">
+                    <label for="area">Área profesional *</label>
+                    <select id="area" required>
+                        <option value="">Selecciona tu área</option>
+                        <option value="tecnologia">Tecnología</option>
+                        <option value="administracion">Administración</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="ventas">Ventas</option>
+                        <option value="rrhh">Recursos Humanos</option>
+                        <option value="finanzas">Finanzas</option>
+                        <option value="otro">Otro</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="experiencia">Experiencia laboral</label>
+                    <textarea id="experiencia" rows="4"
+                        placeholder="Describe tu experiencia más relevante..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="habilidades">Habilidades clave</label>
+                    <textarea id="habilidades" rows="3" placeholder="Ej: Excel, Python, Liderazgo, etc."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="objetivo">Objetivo profesional</label>
+                    <textarea id="objetivo" rows="3" placeholder="¿Qué buscas lograr en tu próximo trabajo?"></textarea>
+                </div>
+            </form>
+
+            <button class="btn" onclick="generateCV()">✨ Generar CV Optimizado</button>
+            <button class="btn btn-secondary" onclick="downloadCV()">📥 Descargar PDF</button>
+        </div>
+
+        <!-- Courses Section -->
+        <div class="card" id="coursesSection" style="display: none;">
+            <h2>🎯 Cursos Gratuitos por Área</h2>
+
+            <div class="filter-section">
+                <div class="filter-btn active" onclick="filterCourses('all')">Todos</div>
+                <div class="filter-btn" onclick="filterCourses('tecnologia')">Tecnología</div>
+                <div class="filter-btn" onclick="filterCourses('administracion')">Administración</div>
+                <div class="filter-btn" onclick="filterCourses('idiomas')">Idiomas</div>
+                <div class="filter-btn" onclick="filterCourses('softskills')">Soft Skills</div>
+            </div>
+
+            <div class="resources-grid" id="coursesList">
+                <div class="resource-item" data-category="tecnologia">
+                    <h3>📱 Desarrollo Web</h3>
+                    <p>Aprende HTML, CSS, JavaScript</p>
+                    <a href="#" class="btn">Ver curso</a>
+                </div>
+
+                <div class="resource-item" data-category="administracion">
+                    <h3>📊 Excel Avanzado</h3>
+                    <p>Domina las funciones más potentes</p>
+                    <a href="#" class="btn">Ver curso</a>
+                </div>
+
+                <div class="resource-item" data-category="idiomas">
+                    <h3>🌍 Inglés Profesional</h3>
+                    <p>Comunicación efectiva en el trabajo</p>
+                    <a href="#" class="btn">Ver curso</a>
+                </div>
+
+                <div class="resource-item" data-category="softskills">
+                    <h3>🤝 Liderazgo</h3>
+                    <p>Desarrolla habilidades de liderazgo</p>
+                    <a href="#" class="btn">Ver curso</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resources Section -->
+        <div class="card" id="resourcesSection" style="display: none;">
+            <h2>📚 Recursos Esenciales</h2>
+
+            <div class="resources-grid">
+                <div class="resource-item">
+                    <h3>✍️ Cómo armar un buen CV</h3>
+                    <p>Guía completa paso a paso</p>
+                    <button class="btn">Leer guía</button>
+                </div>
+
+                <div class="resource-item">
+                    <h3>💼 Optimizar LinkedIn</h3>
+                    <p>Maximiza tu perfil profesional</p>
+                    <button class="btn">Ver tips</button>
+                </div>
+
+                <div class="resource-item">
+                    <h3>🎤 Enfrentar entrevistas</h3>
+                    <p>Prepárate para cualquier pregunta</p>
+                    <button class="btn">Practicar</button>
+                </div>
+
+                <div class="resource-item">
+                    <h3>🧠 Soft Skills</h3>
+                    <p>Comunicación y trabajo en equipo</p>
+                    <button class="btn">Mejorar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interview Simulator -->
+        <div class="simulator" id="interviewSimulator" style="display: none;">
+            <h2>🤖 Simulador de Entrevistas con IA</h2>
+            <p>Practica con preguntas reales y recibe feedback instantáneo</p>
+
+            <div class="simulator-chat" id="chatArea">
+                <p>👋 ¡Hola! Soy tu entrevistador virtual. ¿Listo para comenzar?</p>
+                <p><strong>Pregunta:</strong> Cuéntame sobre ti y por qué te interesa este puesto.</p>
+            </div>
+
+            <textarea id="userResponse" rows="4" placeholder="Escribe tu respuesta aquí..."
+                style="width: 100%; padding: 15px; border-radius: 10px; border: 2px solid #ddd; margin: 10px 0;"></textarea>
+
+            <button class="btn" onclick="submitResponse()">📤 Enviar respuesta</button>
+            <button class="btn btn-secondary" onclick="getNewQuestion()">🔄 Nueva pregunta</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
