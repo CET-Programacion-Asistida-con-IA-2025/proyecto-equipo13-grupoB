@@ -116,11 +116,11 @@
             <h2>🎯 Cursos Gratuitos por Área</h2>
 
             <div class="filter-section">
-                <div class="filter-btn active" onclick="filterCourses('all')">Todos</div>
-                <div class="filter-btn" onclick="filterCourses('tecnologia')">Tecnología</div>
-                <div class="filter-btn" onclick="filterCourses('administracion')">Administración</div>
-                <div class="filter-btn" onclick="filterCourses('idiomas')">Idiomas</div>
-                <div class="filter-btn" onclick="filterCourses('softskills')">Soft Skills</div>
+                <div class="filter-btn active" onclick="filterCourses('all', event)">Todos</div>
+                <div class="filter-btn" onclick="filterCourses('tecnologia', event)">Tecnología</div>
+                <div class="filter-btn" onclick="filterCourses('administracion', event)">Administración</div>
+                <div class="filter-btn" onclick="filterCourses('idiomas', event)">Idiomas</div>
+                <div class="filter-btn" onclick="filterCourses('softskills', event)">Soft Skills</div>
             </div>
 
             <div class="resources-grid" id="coursesList">
@@ -198,6 +198,7 @@
             <button class="btn btn-secondary" onclick="getNewQuestion()">🔄 Nueva pregunta</button>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
 </body>
 
