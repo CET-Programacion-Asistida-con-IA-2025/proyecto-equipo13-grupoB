@@ -23,17 +23,13 @@ function toggleSimulator() {
 }
 
 // CV Generation
-function generateCV() {
-    const formData = new FormData(document.getElementById('cvForm'));
-    alert('¡CV optimizado generado! 🎉\n\nTu CV ha sido optimizado para superar filtros ATS. Incluye las palabras clave correctas para tu área profesional.');
-}
-
 
 async function downloadCV() 
 {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
+    // alert('¡CV optimizado generado! 🎉\n\nTu CV ha sido optimizado para superar filtros ATS. Incluye las palabras clave correctas para tu área profesional.');
     // Mostrar mensaje de descarga
     alert('📥 Descargando CV en formato PDF...\n\nTu CV optimizado se está descargando.');
 

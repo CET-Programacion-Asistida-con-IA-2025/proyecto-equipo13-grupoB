@@ -25,8 +25,6 @@ Este proyecto se alinea con los siguientes ODS:
 
 - **ODS 8: Trabajo decente y crecimiento económico**
   - Promueve la inserción laboral de calidad, ayudando a las personas a mejorar su perfil profesional.
-- **ODS 10: Reducción de las desigualdades**
-  - Democratiza el acceso a herramientas que suelen estar disponibles solo para quienes pueden pagar servicios premium.
 
 ---
 
