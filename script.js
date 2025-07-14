@@ -62,43 +62,89 @@ function navigateToPage(url, newTab = false) {
 }
 
 // CV Generation
-
 async function downloadCV() {
+    console.log("🚀 Iniciando generación de PDF...");
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    // alert('¡CV optimizado generado! 🎉\n\nTu CV ha sido optimizado para superar filtros ATS. Incluye las palabras clave correctas para tu área profesional.');
-    // Mostrar mensaje de descarga
-    alert('📥 Descargando CV en formato PDF...\n\nTu CV optimizado se está descargando.');
+    const margin = 10;
+    let y = margin;
 
-    const nombre = document.getElementById("nombre").value;
-    const email = document.getElementById("email").value;
-    const telefono = document.getElementById("telefono").value;
-    const area = document.getElementById("area").value;
-    const experiencia = document.getElementById("experiencia").value;
-    const habilidades = document.getElementById("habilidades").value;
-    const objetivo = document.getElementById("objetivo").value;
+    try {
+        // Obtener datos
+        const nombre = document.getElementById("preview-nombre").textContent;
+        const email = document.getElementById("preview-email").textContent;
+        const telefono = document.getElementById("preview-telefono").textContent;
+        const direccion = document.getElementById("preview-direccion").textContent;
+        const linkedin = document.getElementById("preview-linkedin").textContent;
+        const perfil = document.getElementById("preview-perfil").textContent;
+        const experiencia = document.getElementById("preview-experiencia").innerText;
+        const educacion = document.getElementById("preview-educacion").innerText;
+        const habilidades = document.getElementById("preview-habilidades").innerText;
+        const idiomas = document.getElementById("preview-idiomas").innerText;
 
-    doc.setFontSize(16);
-    doc.text("Currículum Vitae", 20, 20);
+        console.log("📄 Datos capturados:");
+        console.log({ nombre, email, telefono, direccion, linkedin, perfil, experiencia, educacion, habilidades, idiomas });
 
-    doc.setFontSize(12);
-    doc.text(`Nombre: ${nombre}`, 20, 35);
-    doc.text(`Email: ${email}`, 20, 45);
-    if (telefono) doc.text(`Teléfono: ${telefono}`, 20, 55);
-    doc.text(`Área: ${area}`, 20, 65);
+        // Título
+        doc.setFontSize(18);
+        doc.text(nombre, margin, y);
+        y += 10;
 
-    doc.text("Experiencia laboral:", 20, 80);
-    doc.text(doc.splitTextToSize(experiencia || "-", 170), 20, 90);
+        doc.setFontSize(11);
+        doc.text(email, margin, y); y += 6;
+        doc.text(telefono, margin, y); y += 6;
+        doc.text(direccion, margin, y); y += 6;
+        doc.text(linkedin, margin, y); y += 10;
 
-    doc.text("Habilidades:", 20, 130);
-    doc.text(doc.splitTextToSize(habilidades || "-", 170), 20, 140);
+        // Sección Perfil
+        doc.setFontSize(14);
+        doc.text("Perfil Profesional", margin, y); y += 6;
 
-    doc.text("Objetivo profesional:", 20, 170);
-    doc.text(doc.splitTextToSize(objetivo || "-", 170), 20, 180);
+        doc.setFontSize(11);
+        const perfilLines = doc.splitTextToSize(perfil, 180);
+        doc.text(perfilLines, margin, y); y += perfilLines.length * 6;
 
-    doc.save("cv_generado.pdf");
+        // Sección Experiencia
+        doc.setFontSize(14);
+        doc.text("Experiencia Laboral", margin, y); y += 6;
+
+        doc.setFontSize(11);
+        const expLines = doc.splitTextToSize(experiencia, 180);
+        doc.text(expLines, margin, y); y += expLines.length * 6;
+
+        // Sección Educación
+        doc.setFontSize(14);
+        doc.text("Educación", margin, y); y += 6;
+
+        doc.setFontSize(11);
+        const eduLines = doc.splitTextToSize(educacion, 180);
+        doc.text(eduLines, margin, y); y += eduLines.length * 6;
+
+        // Sección Habilidades
+        doc.setFontSize(14);
+        doc.text("Habilidades", margin, y); y += 6;
+
+        doc.setFontSize(11);
+        const habLines = doc.splitTextToSize(habilidades, 180);
+        doc.text(habLines, margin, y); y += habLines.length * 6;
+
+        // Sección Idiomas
+        doc.setFontSize(14);
+        doc.text("Idiomas", margin, y); y += 6;
+
+        doc.setFontSize(11);
+        const idiomaLines = doc.splitTextToSize(idiomas, 180);
+        doc.text(idiomaLines, margin, y); y += idiomaLines.length * 6;
+
+        console.log("✅ PDF listo, descargando...");
+        doc.save("cv_generado.pdf");
+
+    } catch (error) {
+        console.error("❌ Error al generar el PDF:", error);
+    }
 }
+
 
 // Course filtering
 function filterCourses(category, event) {
@@ -461,11 +507,11 @@ function eliminarElemento(button) {
 function actualizarPreview() {
     // Información personal
     document.getElementById('preview-nombre').textContent = document.getElementById('nombre').value || 'Tu Nombre';
-    document.getElementById('preview-email').textContent = document.getElementById('email').value || 'tu@email.com';
-    document.getElementById('preview-telefono').textContent = document.getElementById('telefono').value || 'Tu teléfono';
-    document.getElementById('preview-direccion').textContent = document.getElementById('direccion').value || 'Tu dirección';
-    document.getElementById('preview-linkedin').textContent = document.getElementById('linkedin').value || 'LinkedIn';
-    document.getElementById('preview-perfil').textContent = document.getElementById('perfil').value || 'Aquí aparecerá tu perfil profesional...';
+    // document.getElementById('preview-email').textContent = document.getElementById('email').value || 'tu@email.com';
+    // document.getElementById('preview-telefono').textContent = document.getElementById('telefono').value || 'Tu teléfono';
+    // document.getElementById('preview-direccion').textContent = document.getElementById('direccion').value || 'Tu dirección';
+    // document.getElementById('preview-linkedin').textContent = document.getElementById('linkedin').value || 'LinkedIn';
+    // document.getElementById('preview-perfil').textContent = document.getElementById('perfil').value || 'Aquí aparecerá tu perfil profesional...';
 
     // Experiencia
     const experienciaContainer = document.getElementById('preview-experiencia');
