@@ -28,7 +28,7 @@
                     para usar las palabras clave correctas y el formato ideal.</p>
                 <!-- <button class="btn" onclick="toggleCVBuilder()">Crear mi CV ahora</button>
                         Ahora abre una pagina nueva :)-->
-                <button class="btn" onclick="navigateToPage('cv-builder.html')">GENERAR CV</button>
+                <button class="btn" onclick="navigateToPage('cv-builder.html')">Generar CV</button>
                 <!-- <button class="btn" onclick="navigateToPage('resources.html')">Recursos</button> -->
 
                 <a href="#tips" class="btn btn-secondary">Ver consejos</a>
@@ -55,65 +55,12 @@
                 </h2>
                 <p>Practica entrevistas laborales con IA. Recibe feedback personalizado para mejorar tus respuestas y
                     ganar confianza.</p>
-                <button class="btn" onclick="toggleSimulator()">Practicar ahora</button>
+                <!-- <button class="btn" onclick="toggleSimulator()">Practicar ahora</button> -->
                 <button class="btn btn-secondary" onclick="showInterviewTips()">Consejos</button>
             </div>
         </div>
 
-        <!-- CV Builder Section -->
-        <div class="cv-builder" id="cvBuilder" style="display: none;">
-            <h2>🔥 Construye tu CV Anti-ATS</h2>
-            <p>Completa los campos y nuestro sistema optimizará tu CV automáticamente</p>
-
-            <form class="cv-form" id="cvForm">
-                <div class="form-group">
-                    <label for="nombre">Nombre completo *</label>
-                    <input type="text" id="nombre" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email *</label>
-                    <input type="email" id="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="tel" id="telefono">
-                </div>
-
-                <div class="form-group">
-                    <label for="area">Área profesional *</label>
-                    <select id="area" required>
-                        <option value="">Selecciona tu área</option>
-                        <option value="tecnologia">Tecnología</option>
-                        <option value="administracion">Administración</option>
-                        <option value="marketing">Marketing</option>
-                        <option value="ventas">Ventas</option>
-                        <option value="rrhh">Recursos Humanos</option>
-                        <option value="finanzas">Finanzas</option>
-                        <option value="otro">Otro</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="experiencia">Experiencia laboral</label>
-                    <textarea id="experiencia" rows="4"
-                        placeholder="Describe tu experiencia más relevante..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="habilidades">Habilidades clave</label>
-                    <textarea id="habilidades" rows="3" placeholder="Ej: Excel, Python, Liderazgo, etc."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="objetivo">Objetivo profesional</label>
-                    <textarea id="objetivo" rows="3" placeholder="¿Qué buscas lograr en tu próximo trabajo?"></textarea>
-                </div>
-            </form>
-
-            <button class="btn btn-secondary" onclick="downloadCV()">📥 Descargar PDF</button>
-        </div>
+      
 
         <!-- Courses Section -->
         <div class="card" id="coursesSection" style="display: none;">
@@ -186,7 +133,7 @@
         </div>
 
         <!-- Entrevistas -->
-        <div class="simulator" id="interviewSimulator" style="display: none;">
+        <!-- <div class="simulator" id="interviewSimulator" style="display: none;">
             <h2>🤖 Simulador de Entrevistas con IA</h2>
             <p>Practica con preguntas reales y recibe feedback instantáneo</p>
 
@@ -200,7 +147,7 @@
 
             <button class="btn" onclick="submitResponse()">📤 Enviar respuesta</button>
             <button class="btn btn-secondary" onclick="getNewQuestion()">🔄 Nueva pregunta</button>
-        </div>
+        </div> -->
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>

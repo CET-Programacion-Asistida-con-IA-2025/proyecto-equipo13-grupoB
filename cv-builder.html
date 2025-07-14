@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Generador de Currículum</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
     <script src="script.js"></script>
 </head>
 <body>
@@ -23,16 +25,17 @@
                         <input type="text" id="nombre" placeholder="Ej: Juan Pérez">
                     </div>
                 </div>
-                <div class="form-row">
+                 <div class="form-row">
                     <div class="form-group">
                         <label for="email">Email</label>
                         <input type="email" id="email" placeholder="juan@email.com">
                     </div>
-                    <div class="form-group">
+               
+                   <div class="form-group">
                         <label for="telefono">Teléfono</label>
                         <input type="tel" id="telefono" placeholder="+54 11 1234-5678">
                     </div>
-                </div>
+                 </div>
                 <div class="form-row">
                     <div class="form-group">
                         <label for="direccion">Dirección</label>
@@ -101,7 +104,7 @@
                     <div class="cv-section">
                         <h3>Idiomas</h3>
                         <div id="preview-idiomas"></div>
-                    </div>
+                    </div> 
                 </div>
             </div>
         </div>
