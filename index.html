@@ -26,7 +26,11 @@
                 </h2>
                 <p>Crea tu CV optimizado para superar los filtros automáticos de las empresas. Nuestro sistema te guía
                     para usar las palabras clave correctas y el formato ideal.</p>
-                <button class="btn" onclick="toggleCVBuilder()">Crear mi CV ahora</button>
+                <!-- <button class="btn" onclick="toggleCVBuilder()">Crear mi CV ahora</button>
+                        Ahora abre una pagina nueva :)-->
+                <button class="btn" onclick="navigateToPage('cv-builder.html')">CV Builder</button>
+                <button class="btn" onclick="navigateToPage('resources.html')">Recursos</button>
+
                 <a href="#tips" class="btn btn-secondary">Ver consejos</a>
             </div>
 
@@ -38,7 +42,8 @@
                 </h2>
                 <p>Accede a cursos gratuitos de las mejores plataformas educativas. Mejora tus habilidades y aumenta tus
                     oportunidades laborales.</p>
-                <button class="btn" onclick="toggleCourses()">Ver cursos</button>
+                <button class="btn" onclick="openCoursesNewTab()">Cursos</button>
+
                 <button class="btn btn-secondary" onclick="toggleResources()">Recursos</button>
             </div>
 
@@ -107,7 +112,6 @@
                 </div>
             </form>
 
-            <!-- <button class="btn" onclick="generateCV()">✨ Generar CV Optimizado</button>   -->
             <button class="btn btn-secondary" onclick="downloadCV()">📥 Descargar PDF</button>
         </div>
 
@@ -182,7 +186,6 @@
         </div>
 
         <!-- Entrevistas -->
-        <!-- Podriamos hacer un foro -->
         <div class="simulator" id="interviewSimulator" style="display: none;">
             <h2>🤖 Simulador de Entrevistas con IA</h2>
             <p>Practica con preguntas reales y recibe feedback instantáneo</p>

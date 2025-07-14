@@ -22,10 +22,48 @@ function toggleSimulator() {
     }
 }
 
+// Navegación entre páginas
+
+function showInterviewTips() {
+    alert('💡 Consejos para entrevistas:\n\n✅ Investiga la empresa\n✅ Prepara ejemplos específicos\n✅ Practica tu lenguaje corporal\n✅ Haz preguntas inteligentes\n✅ Llega 10 minutos antes');
+}
+
+function openCVBuilderNewTab() {
+    window.open('cv-builder.html', '_blank');
+}
+
+function openCoursesNewTab() {
+    window.open('cursos-gratuitos.html', '_blank');
+}
+
+function openResourcesNewTab() {
+    window.open('resources.html', '_blank');
+}
+
+function openSimulatorNewTab() {
+    window.open('interview-simulator.html', '_blank');
+}
+
+// URLs externas
+function openExternalCourses() {
+    window.open('https://www.coursera.org', '_blank');
+}
+
+function openLinkedInJobs() {
+    window.open('https://www.linkedin.com/jobs', '_blank');
+}
+
+function navigateToPage(url, newTab = false) {
+    if (newTab) {
+        window.open(url, '_blank');
+    } else {
+        window.location.href = url;
+    }
+}
+
 // CV Generation
 
-async function downloadCV() 
-{
+async function downloadCV() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
@@ -312,6 +350,220 @@ function initializeInterview() {
     `;
 }
 
-function showInterviewTips() {
-    alert('💡 Consejos para entrevistas:\n\n✅ Investiga la empresa\n✅ Prepara ejemplos específicos\n✅ Practica tu lenguaje corporal\n✅ Haz preguntas inteligentes\n✅ Llega 10 minutos antes');
+let experienciaCount = 0;
+let educacionCount = 0;
+let idiomasCount = 0;
+
+// Agregar experiencia
+function agregarExperiencia() {
+    experienciaCount++;
+    const container = document.getElementById('experiencia-container');
+    const div = document.createElement('div');
+    div.className = 'dynamic-section';
+    div.innerHTML = `
+                <h3>Experiencia ${experienciaCount}</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Puesto</label>
+                        <input type="text" class="exp-puesto" placeholder="Ej: Desarrollador Full Stack">
+                    </div>
+                    <div class="form-group">
+                        <label>Empresa</label>
+                        <input type="text" class="exp-empresa" placeholder="Ej: Tech Company S.A.">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Fecha inicio</label>
+                        <input type="month" class="exp-inicio">
+                    </div>
+                    <div class="form-group">
+                        <label>Fecha fin</label>
+                        <input type="month" class="exp-fin">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Descripción</label>
+                    <textarea class="exp-descripcion" placeholder="Describe tus responsabilidades y logros..."></textarea>
+                </div>
+                <button class="btn btn-danger" onclick="eliminarElemento(this)">Eliminar</button>
+            `;
+    container.appendChild(div);
+    agregarEventListeners();
 }
+
+// Agregar educación
+function agregarEducacion() {
+    educacionCount++;
+    const container = document.getElementById('educacion-container');
+    const div = document.createElement('div');
+    div.className = 'dynamic-section';
+    div.innerHTML = `
+                <h3>Educación ${educacionCount}</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Título</label>
+                        <input type="text" class="edu-titulo" placeholder="Ej: Ingeniería en Sistemas">
+                    </div>
+                    <div class="form-group">
+                        <label>Institución</label>
+                        <input type="text" class="edu-institucion" placeholder="Ej: Universidad de Buenos Aires">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Año de graduación</label>
+                        <input type="number" class="edu-año" placeholder="2023">
+                    </div>
+                </div>
+                <button class="btn btn-danger" onclick="eliminarElemento(this)">Eliminar</button>
+            `;
+    container.appendChild(div);
+    agregarEventListeners();
+}
+
+// Agregar idioma
+function agregarIdioma() {
+    idiomasCount++;
+    const container = document.getElementById('idiomas-container');
+    const div = document.createElement('div');
+    div.className = 'dynamic-section';
+    div.innerHTML = `
+                <h3>Idioma ${idiomasCount}</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Idioma</label>
+                        <input type="text" class="idioma-nombre" placeholder="Ej: Inglés">
+                    </div>
+                    <div class="form-group">
+                        <label>Nivel</label>
+                        <select class="idioma-nivel">
+                            <option value="Básico">Básico</option>
+                            <option value="Intermedio">Intermedio</option>
+                            <option value="Avanzado">Avanzado</option>
+                            <option value="Nativo">Nativo</option>
+                        </select>
+                    </div>
+                </div>
+                <button class="btn btn-danger" onclick="eliminarElemento(this)">Eliminar</button>
+            `;
+    container.appendChild(div);
+    agregarEventListeners();
+}
+
+// Eliminar elemento
+function eliminarElemento(button) {
+    button.parentElement.remove();
+    actualizarPreview();
+}
+
+// Actualizar preview
+function actualizarPreview() {
+    // Información personal
+    document.getElementById('preview-nombre').textContent = document.getElementById('nombre').value || 'Tu Nombre';
+    document.getElementById('preview-email').textContent = document.getElementById('email').value || 'tu@email.com';
+    document.getElementById('preview-telefono').textContent = document.getElementById('telefono').value || 'Tu teléfono';
+    document.getElementById('preview-direccion').textContent = document.getElementById('direccion').value || 'Tu dirección';
+    document.getElementById('preview-linkedin').textContent = document.getElementById('linkedin').value || 'LinkedIn';
+    document.getElementById('preview-perfil').textContent = document.getElementById('perfil').value || 'Aquí aparecerá tu perfil profesional...';
+
+    // Experiencia
+    const experienciaContainer = document.getElementById('preview-experiencia');
+    experienciaContainer.innerHTML = '';
+    document.querySelectorAll('#experiencia-container .dynamic-section').forEach(section => {
+        const puesto = section.querySelector('.exp-puesto').value;
+        const empresa = section.querySelector('.exp-empresa').value;
+        const inicio = section.querySelector('.exp-inicio').value;
+        const fin = section.querySelector('.exp-fin').value;
+        const descripcion = section.querySelector('.exp-descripcion').value;
+
+        if (puesto || empresa) {
+            const div = document.createElement('div');
+            div.className = 'cv-item';
+            div.innerHTML = `
+                        <h4>${puesto} - ${empresa}</h4>
+                        <p>${inicio} - ${fin}</p>
+                        <p>${descripcion}</p>
+                    `;
+            experienciaContainer.appendChild(div);
+        }
+    });
+
+    // Educación
+    const educacionContainer = document.getElementById('preview-educacion');
+    educacionContainer.innerHTML = '';
+    document.querySelectorAll('#educacion-container .dynamic-section').forEach(section => {
+        const titulo = section.querySelector('.edu-titulo').value;
+        const institucion = section.querySelector('.edu-institucion').value;
+        const año = section.querySelector('.edu-año').value;
+
+        if (titulo || institucion) {
+            const div = document.createElement('div');
+            div.className = 'cv-item';
+            div.innerHTML = `
+                        <h4>${titulo}</h4>
+                        <p>${institucion} - ${año}</p>
+                    `;
+            educacionContainer.appendChild(div);
+        }
+    });
+
+    // Habilidades
+    const habilidadesContainer = document.getElementById('preview-habilidades');
+    habilidadesContainer.innerHTML = '';
+    const habilidades = document.getElementById('habilidades').value.split(',');
+    habilidades.forEach(habilidad => {
+        if (habilidad.trim()) {
+            const span = document.createElement('span');
+            span.className = 'skill-tag';
+            span.textContent = habilidad.trim();
+            habilidadesContainer.appendChild(span);
+        }
+    });
+
+    // Idiomas
+    const idiomasContainer = document.getElementById('preview-idiomas');
+    idiomasContainer.innerHTML = '';
+    document.querySelectorAll('#idiomas-container .dynamic-section').forEach(section => {
+        const nombre = section.querySelector('.idioma-nombre').value;
+        const nivel = section.querySelector('.idioma-nivel').value;
+
+        if (nombre) {
+            const div = document.createElement('div');
+            div.className = 'cv-item';
+            div.innerHTML = `<p><strong>${nombre}</strong> - ${nivel}</p>`;
+            idiomasContainer.appendChild(div);
+        }
+    });
+}
+
+// Agregar event listeners
+function agregarEventListeners() {
+    document.querySelectorAll('input, textarea, select').forEach(element => {
+        element.addEventListener('input', actualizarPreview);
+        element.addEventListener('change', actualizarPreview);
+    });
+}
+
+
+// Limpiar formulario
+function limpiarFormulario() {
+    if (confirm('¿Estás seguro de que quieres limpiar todo el formulario?')) {
+        document.querySelectorAll('input, textarea, select').forEach(element => {
+            element.value = '';
+        });
+        document.getElementById('experiencia-container').innerHTML = '';
+        document.getElementById('educacion-container').innerHTML = '';
+        document.getElementById('idiomas-container').innerHTML = '';
+        experienciaCount = 0;
+        educacionCount = 0;
+        idiomasCount = 0;
+        actualizarPreview();
+    }
+}
+
+// Inicializar
+document.addEventListener('DOMContentLoaded', function () {
+    agregarEventListeners();
+    actualizarPreview();
+});
