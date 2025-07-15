@@ -17,6 +17,30 @@ function toggleResources() {
     document.getElementById("resourcesSection").scrollIntoView({ behavior: "smooth", block: "start" });  
 }
 
+function toggleLinkedin() {
+    const section = document.getElementById('LinkedinSection');
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+
+    // Hacer scroll suave hacia el título
+    document.getElementById("LinkedinSection").scrollIntoView({ behavior: "smooth", block: "start" });  
+}
+
+function toggleEntrevistas() {
+    const section = document.getElementById('EntrevistasSection');
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+
+    // Hacer scroll suave hacia el título
+    document.getElementById("EntrevistasSection").scrollIntoView({ behavior: "smooth", block: "start" });  
+}
+
+function toggleSoftSkils() {
+    const section = document.getElementById('SoftSkilsSection');
+    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+
+    // Hacer scroll suave hacia el título
+    document.getElementById("SoftSkilsSection").scrollIntoView({ behavior: "smooth", block: "start" });  
+}
+
 function toggleSimulator() {
     const section = document.getElementById('interviewSimulator');
     section.style.display = section.style.display === 'none' ? 'block' : 'none';
@@ -40,6 +64,10 @@ function openCoursesNewTab() {
 }
 
 function openResourcesNewTab() {
+    window.open('resources.html', '_blank');
+}
+
+function openGuiaNewTab() {
     window.open('resources.html', '_blank');
 }
 

@@ -58,9 +58,7 @@
                 <button class="btn btn-secondary" onclick="showInterviewTips()">Consejos</button>
             </div>
         </div>
-
       
-
         <!-- CURSOSS! Version vieja -->
         <div class="card" id="coursesSection" style="display: none;">
             <h2>🎯 Cursos Gratuitos por Área</h2>
@@ -101,52 +99,114 @@
         </div>
 
         <!-- Recursos -->
-        <div class="card" id="resourcesSection" style="display: none;">
+        <div class="card" id="resourcesSection" style="display: none; margin-top: 50px;">
             <h2>📚 Recursos Esenciales</h2>
 
             <div class="resources-grid">
                 <div class="resource-item">
                     <h3>✍️ Cómo armar un buen CV</h3>
                     <p>Guía completa paso a paso</p>
-                    <button class="btn">Leer guía</button>
+                    <button class="btn" onclick="openGuiaNewTab()">Leer guía</button>
                 </div>
 
                 <div class="resource-item">
                     <h3>💼 Optimizar LinkedIn</h3>
                     <p>Maximiza tu perfil profesional</p>
-                    <button class="btn">Ver tips</button>
+                    <!-- Tengo que crear toggle para ver tips y una seccion de esto-->
+                    <button class="btn btn-secondary" onclick="toggleLinkedin()">Ver tips</button>
                 </div>
 
                 <div class="resource-item">
                     <h3>🎤 Enfrentar entrevistas</h3>
                     <p>Prepárate para cualquier pregunta</p>
-                    <button class="btn">Practicar</button>
+                    <button class="btn btn-secondary" onclick="toggleEntrevistas()">Ver tips</button>
+
                 </div>
 
                 <div class="resource-item">
                     <h3>🧠 Soft Skills</h3>
                     <p>Comunicación y trabajo en equipo</p>
-                    <button class="btn">Mejorar</button>
+                    <button class="btn btn-secondary" onclick="toggleSoftSkils()">Mejorar</button>
                 </div>
             </div>
         </div>
+        
+        <!--        LinkedinSection         -->
+        <div class="card" id="LinkedinSection" style="display: none; margin-top: 50px;">
+            <h2>💼 Optimizar LinkedIn</h2>
+            <div class="Linkedin-grid">
+                <div class="Linkedin-item">
+                    <h3>Maximiza tu perfil profesional</h3>
+                    <p>Guía completa paso a paso</p>
+                </div>
 
-        <!-- Entrevistas -->
-        <!-- <div class="simulator" id="interviewSimulator" style="display: none;">
-            <h2>🤖 Simulador de Entrevistas con IA</h2>
-            <p>Practica con preguntas reales y recibe feedback instantáneo</p>
-
-            <div class="simulator-chat" id="chatArea">
-                <p>👋 ¡Hola! Soy tu entrevistador virtual. ¿Listo para comenzar?</p>
-                <p><strong>Pregunta:</strong> Cuéntame sobre ti y por qué te interesa este puesto.</p>
+                <div class="Linkedin-item">
+                    <h3>Consejos para destacar</h3>
+                    <p>Cómo hacer que tu perfil brille</p>
+                </div>
+                <div class="Linkedin-item">
+                    <h3>Networking efectivo</h3>
+                    <p>Conecta con profesionales de tu área</p> 
+                </div>
             </div>
-
-            <textarea id="userResponse" rows="4" placeholder="Escribe tu respuesta aquí..."
-                style="width: 100%; padding: 15px; border-radius: 10px; border: 2px solid #ddd; margin: 10px 0;"></textarea>
-
-            <button class="btn" onclick="submitResponse()">📤 Enviar respuesta</button>
-            <button class="btn btn-secondary" onclick="getNewQuestion()">🔄 Nueva pregunta</button>
-        </div> -->
+        </div>
+                <!--            EntrevistasSection          -->
+        <div class="card" id="EntrevistasSection" style="display: none; margin-top: 50px;">
+            <h2>🎤 Enfrentar entrevistas</h2>
+            <div class="Entrevistas-grid">
+                <div class="Entrevistas-item">
+                    <h3>Prepárate para cualquier pregunta</h3>
+                    <p>Las posibles preguntas</p>
+                </div>
+                <div class="Entrevistas-item">
+                    <h3>Consejos para destacar</h3>
+                    <p>Cómo hacer que tu perfil brille</p>
+                </div>
+            </div>
+        </div>
+                <!--            SoftSkilsSection            -->
+        <div class="card" id="SoftSkilsSection" style="display: none; margin-top: 50px;">
+            <h2>🧠 Soft Skills</h2>
+            <div class="SoftSkils-grid">
+                <div class="SoftSkils-item">
+                    <h3>Comunicación y trabajo en equipo</h3>
+                    <p>Para mejorar el trabajo en equipo</p>
+                </div>
+                <div class="SoftSkils-item">
+                    <h3>Resolución de conflictos</h3>
+                    <p>Cómo manejar desacuerdos de manera efectiva</p>
+                </div>
+                <div class="SoftSkils-item">
+                    <h3>Adaptabilidad</h3>
+                    <p>Cómo adaptarse a cambios en el entorno laboral</p>
+                </div>
+                <div class="SoftSkils-item">
+                    <h3>Empatía</h3>
+                    <p>Entender y conectar con los demás</p>
+                </div>
+                <div class="SoftSkils-item">
+                    <h3>Creatividad</h3>
+                    <p>Fomentar la innovación en el trabajo</p>
+                </div>
+                <div class="SoftSkils-item">
+                    <h3>Gestión del tiempo</h3>
+                    <p>Cómo organizar tu día para ser más productivo</p>
+                </div>
+                <div class="SoftSkils-item">
+                    <h3>Habilidades de negociación</h3>
+                    <p>Cómo llegar a acuerdos beneficiosos para todos</p>
+                </div>
+                <div class="SoftSkils-item">
+                    <h3>Habilidades de liderazgo</h3>
+                    <p>Cómo guiar y motivar a un equipo</p>
+                </div>
+                <div class="SoftSkils-item">
+                    <h3>Habilidades de escucha activa</h3>
+                    <p>Cómo mejorar la comunicación con los demás</p>
+                </div>
+            </div>
+        </div>
+            
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
