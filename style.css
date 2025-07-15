@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: "Arial", sans-serif;
-  background: linear-gradient(45deg, #b8f2c4, #87ceeb, #dda0dd, #f0e68c);
+  background: linear-gradient(45deg, #b8f2c4, #87ceeb);
   background-size: 400% 400%;
   animation: gradientShift 8s ease infinite;
   min-height: 100vh;
@@ -365,7 +365,7 @@ body {
   left: 0;
   right: 0;
   height: 5px;
-  background: linear-gradient(45deg, #faa5cb, #e5376a);
+  background: linear-gradient(45deg, #ff509f, #e5376a);
 }
 
 .card h2 {
