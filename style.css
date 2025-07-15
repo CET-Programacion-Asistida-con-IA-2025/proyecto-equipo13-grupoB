@@ -5,11 +5,10 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    /*background: linear-gradient(135deg, #ff6b9d, #ffc837, #00ffcc);*/
-    background: linear-gradient(#b8f2c4);
-    min-height: 100vh;
-    overflow-x: hidden;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #ff6b9d, #ffc837, #00ffcc);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .container {
@@ -20,9 +19,9 @@ body {
 
 /* Header */
 .header {
-    text-align: center;
-    padding: 40px 0;
-    color: white;
+  text-align: center;
+  padding: 40px 0;
+  color: white;
 }
 
 .header h1 {
@@ -63,13 +62,13 @@ body {
 }
 
 .card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(#e5376a);
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #ff88b0 /*, #ffc837*/, #00d4aa);
 }
 
 .card h2 {
