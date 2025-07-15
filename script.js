@@ -51,6 +51,26 @@ function toggleSimulator() {
 
 // Navegación entre páginas
 
+
+function showInterviewTipsFiltrosAts() {
+  // Ocultar otras secciones si querés
+  document.getElementById("coursesSection").style.display = "none";
+  document.getElementById("resourcesSection").style.display = "none";
+
+  // Mostrar el blog de consejos ATS
+  document.getElementById("atsTipsSection").style.display = "block";
+
+  // Scroll suave
+  window.scrollTo({
+    top: document.getElementById("atsTipsSection").offsetTop - 50,
+    behavior: "smooth"
+  });
+}
+function hideATSTips() {
+  document.getElementById("atsTipsSection").style.display = "none";
+}
+
+
 function showInterviewTips() {
   alert(
     "💡 Consejos para entrevistas:\n\n✅ Investiga la empresa\n✅ Prepara ejemplos específicos\n✅ Practica tu lenguaje corporal\n✅ Haz preguntas inteligentes\n✅ Llega 10 minutos antes"

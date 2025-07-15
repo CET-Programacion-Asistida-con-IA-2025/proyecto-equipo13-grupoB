@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CV PRO</title>
     <link rel="stylesheet" href="style.css" />
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <h1>🚀 CV PRO</h1>
-            <p>Crea CVs que superen cualquier filtro ATS y destaca en tu búsqueda laboral</p>
+      <!-- Header -->
+      <div class="header">
+        <h1>🚀 CV PRO</h1>
+        <p>Crea CVs que superen cualquier filtro ATS y destaca en tu búsqueda laboral</p>
+      </div>
+
+      <!-- Main Cards -->
+      <div class="cards-grid">
+        <!-- CV Builder Card -->
+        <div class="card">
+          <h2>
+            <div class="card-icon cv-icon">📄</div>
+            Generador de CV Anti-ATS
+          </h2>
+          <p>Crea tu CV optimizado para superar los filtros automáticos de las empresas. Nuestro sistema te guía para usar las palabras clave correctas y el formato ideal.</p>
+          <button class="btn" onclick="navigateToPage('cv-builder.html')">
+            Generar CV
+          </button>
+          <button class="btn btn-secondary" onclick="showInterviewTipsFiltrosAts()"> Ver consejos </button>
         </div>
 
-        <!-- Main Cards -->
-        <div class="cards-grid">
-            <!-- CV Builder Card -->
-            <div class="card">
-                <h2>
-                    <div class="card-icon cv-icon">📄</div>
-                    Generador de CV Anti-ATS
-                </h2>
-                <p>Crea tu CV optimizado para superar los filtros automáticos de las empresas. Nuestro sistema te guía
-                    para usar las palabras clave correctas y el formato ideal.</p>
-                <!-- <button class="btn" onclick="toggleCVBuilder()">Crear mi CV ahora</button>
-                        Ahora abre una pagina nueva :)-->
-                <button class="btn" onclick="navigateToPage('cv-builder.html')">Generar CV</button>
-                <!-- <button class="btn" onclick="navigateToPage('resources.html')">Recursos</button> -->
-
-                <a href="#tips" class="btn btn-secondary">Ver consejos</a>
-            </div>
-
-            <!-- Training Card -->
-            <div class="card">
-                <h2>
-                    <div class="card-icon course-icon">🎓</div>
-                    Capacitación Gratuita
-                </h2>
-                <p>Accede a cursos gratuitos de las mejores plataformas educativas. Mejora tus habilidades y aumenta tus
-                    oportunidades laborales.</p>
-                <button class="btn" onclick="openCoursesNewTab()">Cursos</button>
-                <button class="btn btn-secondary" onclick="toggleResources()">Recursos</button>
-            </div>
+        <!-- Training Card -->
+        <div class="card">
+          <h2>
+            <div class="card-icon course-icon">🎓</div>
+            Capacitación Gratuita
+          </h2>
+          <p>
+            Accede a cursos gratuitos de las mejores plataformas educativas.
+            Mejora tus habilidades y aumenta tus oportunidades laborales.
+          </p>
+          <button class="btn" onclick="openCoursesNewTab()">Cursos</button>
+          <button class="btn btn-secondary" onclick="toggleResources()">
+            Recursos
+          </button>
+        </div>
 
             <!-- Interview Simulator Card -->
             <div class="card">
@@ -58,47 +58,48 @@
                 <button class="btn btn-secondary" onclick="showInterviewTips()">Consejos</button>
             </div>
         </div>
-      
-        <!-- CURSOSS! Version vieja -->
-        <div class="card" id="coursesSection" style="display: none;">
-            <h2>🎯 Cursos Gratuitos por Área</h2>
+      </div>
 
-            <div class="filter-section">
-                <div class="filter-btn active" onclick="filterCourses('all', event)">Todos</div>
-                <div class="filter-btn" onclick="filterCourses('tecnologia', event)">Tecnología</div>
-                <div class="filter-btn" onclick="filterCourses('administracion', event)">Administración</div>
-                <div class="filter-btn" onclick="filterCourses('idiomas', event)">Idiomas</div>
-                <div class="filter-btn" onclick="filterCourses('softskills', event)">Soft Skills</div>
-            </div>
+      <!-- CURSOS! Version vieja -->
+      <div class="card" id="coursesSection" style="display: none">
+        <h2>🎯 Cursos Gratuitos por Área</h2>
 
-            <div class="resources-grid" id="coursesList">
-                <div class="resource-item" data-category="tecnologia">
-                    <h3>📱 Desarrollo Web</h3>
-                    <p>Aprende HTML, CSS, JavaScript</p>
-                    <a href="#" class="btn">Ver curso</a>
-                </div>
-
-                <div class="resource-item" data-category="administracion">
-                    <h3>📊 Excel Avanzado</h3>
-                    <p>Domina las funciones más potentes</p>
-                    <a href="#" class="btn">Ver curso</a>
-                </div>
-
-                <div class="resource-item" data-category="idiomas">
-                    <h3>🌍 Inglés Profesional</h3>
-                    <p>Comunicación efectiva en el trabajo</p>
-                    <a href="#" class="btn">Ver curso</a>
-                </div>
-
-                <div class="resource-item" data-category="softskills">
-                    <h3>🤝 Liderazgo</h3>
-                    <p>Desarrolla habilidades de liderazgo</p>
-                    <a href="#" class="btn">Ver curso</a>
-                </div>
-            </div>
+        <div class="filter-section">
+          <div class="filter-btn active" onclick="filterCourses('all', event)">Todos</div>
+          <div class="filter-btn" onclick="filterCourses('tecnologia', event)"> Tecnología </div>
+          <div class="filter-btn" onclick="filterCourses('administracion', event)">Administración</div>
+          <div class="filter-btn" onclick="filterCourses('idiomas', event)">Idiomas</div>
+          <div class="filter-btn" onclick="filterCourses('softskills', event)">Soft Skills</div>
         </div>
 
-        <!-- Recursos -->
+        <div class="resources-grid" id="coursesList">
+          <div class="resource-item" data-category="tecnologia">
+            <h3>📱 Desarrollo Web</h3>
+            <p>Aprende HTML, CSS, JavaScript</p>
+            <a href="#" class="btn">Ver curso</a>
+          </div>
+
+          <div class="resource-item" data-category="administracion">
+            <h3>📊 Excel Avanzado</h3>
+            <p>Domina las funciones más potentes</p>
+            <a href="#" class="btn">Ver curso</a>
+          </div>
+
+          <div class="resource-item" data-category="idiomas">
+            <h3>🌍 Inglés Profesional</h3>
+            <p>Comunicación efectiva en el trabajo</p>
+            <a href="#" class="btn">Ver curso</a>
+          </div>
+
+          <div class="resource-item" data-category="softskills">
+            <h3>🤝 Liderazgo</h3>
+            <p>Desarrolla habilidades de liderazgo</p>
+            <a href="#" class="btn">Ver curso</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recursos -->
         <div class="card" id="resourcesSection" style="display: none; margin-top: 50px;">
             <h2>📚 Recursos Esenciales</h2>
 
@@ -108,6 +109,12 @@
                     <p>Guía completa paso a paso</p>
                     <button class="btn" onclick="openGuiaNewTab()">Leer guía</button>
                 </div>
+        <div class="resources-grid">
+          <div class="resource-item">
+            <h3>✍️ Cómo armar un buen CV</h3>
+            <p>Guía completa paso a paso</p>
+            <button class="btn">Leer guía</button>
+          </div>
 
                 <div class="resource-item">
                     <h3>💼 Optimizar LinkedIn</h3>
@@ -122,6 +129,11 @@
                     <button class="btn btn-secondary" onclick="toggleEntrevistas()">Ver tips</button>
 
                 </div>
+          <div class="resource-item">
+            <h3>🎤 Enfrentar entrevistas</h3>
+            <p>Prepárate para cualquier pregunta</p>
+            <button class="btn">Practicar</button>
+          </div>
 
                 <div class="resource-item">
                     <h3>🧠 Soft Skills</h3>
@@ -206,10 +218,56 @@
                 </div>
             </div>
         </div>
-            
     </div>
+    <!-- Mini Blog: Filtros ATS -->
+    <div class="ats-card" id="atsTipsSection" style="display: none">
+      <h2>🔍 ¿Qué son los Filtros ATS?</h2>
+      <p>
+        Los sistemas de seguimiento de candidatos (ATS) son herramientas
+        utilizadas por las empresas para gestionar los CVs que reciben. Estas
+        plataformas escanean los currículums en busca de palabras clave y
+        formatos específicos.
+      </p>
+
+      <h3>🛑 ¿Qué pasa si mi CV no es compatible?</h3>
+      <p>
+        El ATS puede descartar automáticamente tu CV si no detecta los términos
+        que busca. ¡Podés quedar fuera sin que un humano lo lea!
+      </p>
+
+      <h3>✅ ¿Cómo pasar los filtros ATS?</h3>
+      <ul class="ats-tips-list">
+        <li>
+          🗝️ Usá <strong>palabras clave</strong> del puesto al que aplicás.
+        </li>
+        <li>
+          📄 Evitá <strong>símbolos, tablas o gráficos complejos</strong>.
+        </li>
+        <li>
+          🧼 Mantené un <strong>formato limpio</strong> con títulos claros como
+          “Experiencia laboral”.
+        </li>
+        <li>
+          📈 Los sistemas ATS detectan
+          <strong>palabras clave de acción</strong> como <em>"mejoré"</em>,
+          <em>"automatización"</em>, <em>"incrementé"</em> o
+          <em>"desarrollé una solución"</em>. Estas expresiones demuestran
+          impacto y aumentan las chances de pasar los filtros.
+        </li>
+      </ul>
+
+      <div class="ats-final-tip">
+        <h3>🎯 Consejo final</h3>
+        <p>
+          Usá nuestro <strong>Generador de CV Anti-ATS</strong> para aumentar
+          tus chances de ser llamado a una entrevista.
+        </p>
+      </div>
+
+      <button class="btn btn-secondary" onclick="hideATSTips()">Cerrar</button>
+    </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
