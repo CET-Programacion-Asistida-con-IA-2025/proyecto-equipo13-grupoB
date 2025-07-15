@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Generador de Currículum</title>
@@ -8,112 +8,141 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script src="script.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <div class="header">
-            <h1>Generador de Currículum</h1>
-            <p>Crea tu currículum profesional de manera fácil y rápida</p>
-        </div>
+      <div class="header">
+        <h1>Generador de Currículum</h1>
+        <p>Crea tu currículum profesional de manera fácil y rápida</p>
+      </div>
 
-        <div class="main-content">
-            <div class="form-section">
-                <h2 class="section-title">Información Personal</h2>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="nombre">Nombre completo</label>
-                        <input type="text" id="nombre" placeholder="Ej: Juan Pérez">
-                    </div>
-                </div>
-                 <div class="form-row">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" placeholder="juan@email.com">
-                    </div>
-               
-                   <div class="form-group">
-                        <label for="telefono">Teléfono</label>
-                        <input type="tel" id="telefono" placeholder="+54 11 1234-5678">
-                    </div>
-                 </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="direccion">Dirección</label>
-                        <input type="text" id="direccion" placeholder="Buenos Aires, Argentina">
-                    </div>
-                    <div class="form-group">
-                        <label for="linkedin">LinkedIn</label>
-                        <input type="url" id="linkedin" placeholder="https://linkedin.com/in/usuario">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="perfil">Perfil profesional</label>
-                    <textarea id="perfil" placeholder="Describe brevemente tu experiencia y objetivos profesionales..."></textarea>
-                </div>
+      <div class="main-content">
+        <div class="form-section">
+          <h2 class="section-title">Información Personal</h2>
+          <div class="form-group">
+            <label for="input-foto">Adjuntar imagen</label>
+            <input type="file" id="input-foto" accept="image/*" />
+          </div>
 
-                <h2 class="section-title">Experiencia Laboral</h2>
-                <div id="experiencia-container"></div>
-                <button class="btn" onclick="agregarExperiencia()">+ Agregar Experiencia</button>
-
-                <h2 class="section-title">Educación</h2>
-                <div id="educacion-container"></div>
-                <button class="btn" onclick="agregarEducacion()">+ Agregar Educación</button>
-
-                <h2 class="section-title">Habilidades</h2>
-                <div class="form-group">
-                    <label for="habilidades">Habilidades (separadas por comas)</label>
-                    <textarea id="habilidades" placeholder="JavaScript, Python, React, Node.js, SQL, etc."></textarea>
-                </div>
-
-                <h2 class="section-title">Idiomas</h2>
-                <div id="idiomas-container"></div>
-                <button class="btn" onclick="agregarIdioma()">+ Agregar Idioma</button>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" placeholder="Ej: Juan Pérez" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="juan@email.com" />
             </div>
 
-            <div class="preview-section">
-                <h2 class="section-title">Vista previa</h2>
-                <div class="cv-preview" id="cv-preview">
-                    <div class="cv-header">
-                        <h2 id="preview-nombre">Tu Nombre</h2>
-                        <p id="preview-email">tu@email.com</p>
-                        <p id="preview-telefono">+54 11 1234-5678</p>
-                        <p id="preview-direccion">Tu dirección</p>
-                        <p id="preview-linkedin">LinkedIn</p>
-                    </div>
-
-                    <div class="cv-section">
-                        <h3>Perfil Profesional</h3>
-                        <p id="preview-perfil">Aquí aparecerá tu perfil profesional...</p>
-                    </div>
-
-                    <div class="cv-section">
-                        <h3>Experiencia Laboral</h3>
-                        <div id="preview-experiencia"></div>
-                    </div>
-
-                    <div class="cv-section">
-                        <h3>Educación</h3>
-                        <div id="preview-educacion"></div>
-                    </div>
-
-                    <div class="cv-section">
-                        <h3>Habilidades</h3>
-                        <div class="skills-list" id="preview-habilidades"></div>
-                    </div>
-
-                    <div class="cv-section">
-                        <h3>Idiomas</h3>
-                        <div id="preview-idiomas"></div>
-                    </div> 
-                </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono</label>
+              <input type="tel" id="telefono" placeholder="+54 11 1234-5678" />
             </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="direccion">Dirección</label>
+              <input
+                type="text"
+                id="direccion"
+                placeholder="Buenos Aires, Argentina"
+              />
+            </div>
+            <div class="form-group">
+              <label for="linkedin">LinkedIn</label>
+              <input
+                type="url"
+                id="linkedin"
+                placeholder="https://linkedin.com/in/usuario"
+              />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="perfil">Perfil profesional</label>
+            <textarea
+              id="perfil"
+              placeholder="Describe brevemente tu experiencia y objetivos profesionales..."
+            ></textarea>
+          </div>
+
+          <h2 class="section-title">Experiencia Laboral</h2>
+          <div id="experiencia-container"></div>
+          <button class="btn" onclick="agregarExperiencia()">
+            + Agregar Experiencia
+          </button>
+
+          <h2 class="section-title">Educación</h2>
+          <div id="educacion-container"></div>
+          <button class="btn" onclick="agregarEducacion()">
+            + Agregar Educación
+          </button>
+
+          <h2 class="section-title">Habilidades</h2>
+          <div class="form-group">
+            <label for="habilidades">Habilidades (separadas por comas)</label>
+            <textarea
+              id="habilidades"
+              placeholder="JavaScript, Python, React, Node.js, SQL, etc."
+            ></textarea>
+          </div>
+
+          <h2 class="section-title">Idiomas</h2>
+          <div id="idiomas-container"></div>
+          <button class="btn" onclick="agregarIdioma()">
+            + Agregar Idioma
+          </button>
         </div>
 
-        <div class="download-section">
-            <button class="btn" onclick="downloadCV()">📄 Descargar CV como PDF</button>
+        <div class="preview-section">
+          <h2 class="section-title">Vista previa</h2>
+          <div class="cv-preview" id="cv-preview">
+            <div class="cv-header">
+              <h2 id="preview-nombre">Tu Nombre</h2>
+              <p id="preview-email">tu@email.com</p>
+              <p id="preview-telefono">+54 11 1234-5678</p>
+              <p id="preview-direccion">Tu dirección</p>
+              <p id="preview-linkedin">LinkedIn</p>
+            </div>
 
-            <button class="btn btn-secondary" onclick="limpiarFormulario()">🔄 Limpiar Formulario</button>
+            <div class="cv-section">
+              <h3>Perfil Profesional</h3>
+              <p id="preview-perfil">Aquí aparecerá tu perfil profesional...</p>
+            </div>
+
+            <div class="cv-section">
+              <h3>Experiencia Laboral</h3>
+              <div id="preview-experiencia"></div>
+            </div>
+
+            <div class="cv-section">
+              <h3>Educación</h3>
+              <div id="preview-educacion"></div>
+            </div>
+
+            <div class="cv-section">
+              <h3>Habilidades</h3>
+              <div class="skills-list" id="preview-habilidades"></div>
+            </div>
+
+            <div class="cv-section">
+              <h3>Idiomas</h3>
+              <div id="preview-idiomas"></div>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="download-section">
+        <button class="btn" onclick="downloadCV()">
+          📄 Descargar CV como PDF
+        </button>
+
+        <button class="btn btn-secondary" onclick="limpiarFormulario()">
+          🔄 Limpiar Formulario
+        </button>
+      </div>
     </div>
-</body>
+  </body>
 </html>
