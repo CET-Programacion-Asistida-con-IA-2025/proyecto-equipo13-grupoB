@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff6b9d, #ffc837, #00ffcc);
+    /*background: linear-gradient(135deg, #ff6b9d, #ffc837, #00ffcc);*/
+    background: linear-gradient(#b8f2c4);
     min-height: 100vh;
     overflow-x: hidden;
 }
@@ -21,7 +22,7 @@ body {
 .header {
     text-align: center;
     padding: 40px 0;
-    color: white;
+    color: #2f2232;
 }
 
 .header h1 {
@@ -68,7 +69,7 @@ body {
     left: 0;
     right: 0;
     height: 5px;
-    background: linear-gradient(90deg, #ff88b0/*, #ffc837*/, #00d4aa);
+    background: linear-gradient(#e5376a);
 }
 
 .card h2 {

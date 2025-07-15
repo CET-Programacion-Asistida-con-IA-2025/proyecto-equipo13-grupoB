@@ -12,6 +12,9 @@ function toggleCourses() {
 function toggleResources() {
     const section = document.getElementById('resourcesSection');
     section.style.display = section.style.display === 'none' ? 'block' : 'none';
+
+    // Hacer scroll suave hacia el título
+    document.getElementById("resourcesSection").scrollIntoView({ behavior: "smooth", block: "start" });  
 }
 
 function toggleSimulator() {
